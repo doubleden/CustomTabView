@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  RootView.swift
 //  CustomTabView
 //
 //  Created by Denis Denisov on 29/4/25.
@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct RootView: View {
     @EnvironmentObject var tabCoordinator: TabCoordinator
+    
     private var view: AnyView {
         switch tabCoordinator.currentView {
         case .firstTabView:
@@ -29,5 +30,6 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    RootView()
+        .environmentObject(TabCoordinator())
 }

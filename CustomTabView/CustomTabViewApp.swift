@@ -12,7 +12,7 @@ struct CustomTabViewApp: App {
     @StateObject private var tabCoordinator: TabCoordinator = .init()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
         }
         .environmentObject(tabCoordinator)
     }

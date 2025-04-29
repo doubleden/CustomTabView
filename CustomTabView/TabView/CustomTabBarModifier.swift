@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+extension View {
+    func customTabBar() -> some View {
+        self.modifier(CustomTabBarModifier())
+    }
+}
+
+// Custom tab bar view
 struct CustomTabBarModifier: ViewModifier {
     @EnvironmentObject var tabCoordinator: TabCoordinator
 
@@ -45,11 +52,5 @@ struct CustomTabBarModifier: ViewModifier {
                 .padding(.horizontal)
             }
         }
-    }
-}
-
-extension View {
-    func customTabBar() -> some View {
-        self.modifier(CustomTabBarModifier())
     }
 }

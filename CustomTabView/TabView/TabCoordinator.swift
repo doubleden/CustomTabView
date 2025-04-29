@@ -38,17 +38,13 @@ enum TabViewCoordinator: CaseIterable {
 }
 
 final class TabCoordinator: ObservableObject {
+    //For View
     @Published var currentView: TabViewCoordinator = .firstTabView
+    
+    //For Items in TabBar
     let tabItems = TabViewCoordinator.allCases
     
     func resolve(view: TabViewCoordinator) {
-        switch view {
-        case .firstTabView:
-            currentView = .firstTabView
-        case .secondTabView:
-            currentView = .secondTabView
-        case .thirdTabView:
-            currentView = .thirdTabView
-        }
+        currentView = view
     }
 }
