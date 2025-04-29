@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct CustomTabViewApp: App {
+    @StateObject private var tabCoordinator: TabCoordinator = .init()
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
+        .environmentObject(tabCoordinator)
     }
 }

@@ -8,14 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+    @EnvironmentObject var tabCoordinator: TabCoordinator
+    private var view: AnyView {
+        switch tabCoordinator.currentView {
+        case .firstTabView:
+            AnyView(FirstView().customTabBar())
+        case .secondTabView:
+            AnyView(SecondView().customTabBar())
+        case .thirdTabView:
+            AnyView(ThirdView().customTabBar())
         }
-        .padding()
+    }
+    var body: some View {
+        NavigationView {
+            ZStack {
+                view
+            }
+        }
     }
 }
 
